@@ -33,7 +33,7 @@ class DownloadScreen(Screen):
         
     def movie(self,*args):
         def annotate(clip,txt,txt_color,fontsize,font = './Font/led_counter-7.ttf'):
-            text_clip = editor.TextClip(txt,fontsize=fontsize,font=font,color= txt_color,kerning= 3)
+            text_clip = editor.TextClip(txt,fontsize=fontsize,font=font,color= txt_color,kerning= 5)
             cvc = editor.CompositeVideoClip([clip,text_clip.set_position((0.18,.19),relative=True)])
             return cvc.set_duration(clip.duration)
         video = editor.VideoFileClip('./Video/crackers.mp4')
