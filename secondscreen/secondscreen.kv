@@ -1,0 +1,65 @@
+#: import C kivy.utils.get_color_from_hex
+
+<SecondScreen>:
+   
+	FloatLayout:
+		Label:
+			id: wish_label
+			text: ""
+			font_size: 30
+			font_name: './Font/led_counter-7.ttf'
+			color:  C('#FFE376')
+			opacity : 0
+			pos_hint: {"center_x":.5,"center_y":.8}
+		Label:
+			id: name_label
+			text: ""
+			font_size: 30
+			font_name: './Font/led_counter-7.ttf'
+			color: C('#FFE376')
+			opacity : 0
+			pos_hint: {"center_x":.5,"center_y":.7}
+				
+        FloatLayout:
+            opacity: 0
+            id: video_end
+            canvas.before:
+        		Color:
+        			rgba: (0,0,0,1)
+        		Rectangle:
+        			size: self.size
+        			pos: self.pos
+            BoxLayout:
+                orientation: "vertical"
+        		size_hint: [.8,.2]
+        		pos_hint: {"center_x":.5,"center_y":.55}
+        		MDRectangleFlatIconButton:
+            		icon: 'arrow-left'
+            		text: 'Back'
+            		size_hint:[.5,.15]
+            		pos_hint: {"center_x":.5,"center_y":.55}
+            		bold: True
+            		on_press:
+                		root.parent.current = 'first_screen'
+                		root.erase_video_end_dialogbox()	
+            	MDChip:
+                	icon: 'arrow-right'
+                	label: 'Next'
+                	size_hint:[.5,.15]
+            		pos_hint: {"center_x":.5,"center_y":.45}
+                	radius: '0dp'
+            		bold: True
+                	on_touch_down:
+                    	root.parent.current = 'download_screen'
+                    	root.erase_video_end_dialogbox()
+        		
+        		
+        		
+        		
+        		
+        		
+        		
+        		
+        		
+                
+ 

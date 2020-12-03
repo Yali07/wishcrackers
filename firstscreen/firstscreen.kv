@@ -1,0 +1,75 @@
+<FirstScreen>:
+	
+	BackgroundLayer:
+	
+	FloatLayout:
+    	MDCard:
+    		orientation: "vertical"
+    		size_hint: [.8,.6]
+    		pos_hint: {"center_x":.5,"center_y":.55}
+    		spacing: 25
+    		MDLabel:
+    			size_hint_y: .3
+    			text: "Wish Crackers"
+    			font_size: 20
+    			color: (1,0,0,1)
+    			bold: True
+    			pos_hint: {"center_x":.5,"center_y":.5} 
+    			valign: "middle"
+    			halign: "center"
+    		MDTextField:
+    			id: wish_input
+    			text:''
+    			hint_text: 'Wish'
+    			size_hint: [.8,.25]
+    			pos_hint: {"center_x":.5,"center_y":.5} 
+    			mode: 'rectangle'
+    		MDTextField:
+    			id: name_input
+    			text: ""
+    			hint_text: 'Name'
+    			size_hint: [.8,.25]
+    			pos_hint: {"center_x":.5,"center_y":.5} 
+    			mode: 'rectangle'
+    		MDLabel:
+    			size_hint_y: .1
+    			text: ""
+    		MDFillRoundFlatButton:
+        		id: create
+    			text: "Create"
+    			size_hint: [.5,.15]
+    			pos_hint: {"center_x": .5,'center_y': .5}
+    			state: 'normal'
+    			on_release:
+    				root.parent.current = "second_screen"
+    			on_press:
+    				root.parent.ids.second_screen.ids.wish_label.text = wish_input.text 
+    				root.parent.ids.second_screen.ids.name_label.text = name_input.text
+    				root.parent.ids.second_screen.label_anim()
+    				root.prime_video()
+    				root.parent.ids.second_screen.delay_dialogbox()
+    		MDLabel:
+    			size_hint_y: .1
+    			text: ""
+<BackgroundLayer@BoxLayout>:
+	BoxLayout:
+		orientation: "vertical"
+		canvas.before:
+			Color:
+				rgba: (1,1,1,1)
+			Rectangle:
+				size: self.size
+				pos: self.pos
+		BoxLayout:
+			orientation: "vertical"
+			canvas.before:
+				Color:
+					rgba: (0,0,1,1)
+				RoundedRectangle:
+					size: self.size
+					pos: self.pos
+					radius: [0,0,50,50]
+		BoxLayout:
+			orientation: "vertical"
+			
+		

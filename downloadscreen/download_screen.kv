@@ -1,0 +1,58 @@
+<DownloadScreen>:
+    FloatLayout:
+        oriebtation: "vertical"
+        id: floatlayout
+        canvas.before:
+    		Color:
+    			rgba: (1,1,1,1)
+    		Rectangle:
+    			size: self.size
+    			pos: self.pos
+        MDFillRoundFlatIconButton:
+            id: download_btn
+            icon: "download"
+            text: "Download"
+            state: "normal"
+            disabled : False
+            bold: True
+            opacity : 1
+            size_hint : [.5,.05]
+            pos_hint: {"center_x": .5,"center_y": .8}
+            on_press:
+                root.start_vid()
+                root.start_download()
+                root.progress_screen()
+        Label:
+            id: count
+            text: ''
+            pos_hint: {"center_x": .5,"center_y": .9}
+            font_size: 20
+            color: (1,0,0,1)
+            opacity: 0
+        MDProgressBar:
+            id: progress
+            size_hint: [.7,1]
+            pos_hint:{"center_x": .5,"center_y": .85}
+            opacity: 0
+        MDFillRoundFlatButton:
+            id: cancel
+            text: 'Cancel'
+            disabled: True
+            bold: True
+            size_hint: [.3,.05]
+            pos_hint:{"center_x": .5,"center_y": .75}
+            opacity: 0
+            on_release:
+                root.parent.current ='first_screen'
+            on_press:
+                root.del_progress_screen()
+        
+        
+        
+        
+          
+        
+
+  
+
+            
