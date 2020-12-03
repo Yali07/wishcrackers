@@ -34,7 +34,7 @@ class DownloadScreen(Screen):
     def movie(self,*args):
         def annotate(clip,txt,txt_color,fontsize,font = './Font/led_counter-7.ttf'):
             text_clip = editor.TextClip(txt,fontsize=fontsize,font=font,color= txt_color,kerning= 3)
-            cvc = editor.CompositeVideoClip([clip,text_clip.set_position((0.17,.18),relative=True)])
+            cvc = editor.CompositeVideoClip([clip,text_clip.set_position((0.18,.19),relative=True)])
             return cvc.set_duration(clip.duration)
         video = editor.VideoFileClip('./Video/crackers.mp4')
         w_text = self.parent.ids.first_screen.ids.wish_input.text
@@ -44,7 +44,7 @@ class DownloadScreen(Screen):
         if n_text == '':
             n_text='.'
         subs = [((0,11),'.','black',10),
-                ((11,16),(w_text + '\n\n'+ n_text),'yellow',55),
+                ((11,16),(w_text + '\n\n'+ n_text),'yellow',80),
                 ((16,17),'.','black',10,)]
         annotated_clip= [annotate(video.subclip(from_t,to_t),txt,txt_color,fontsize) for (from_t,to_t),txt,txt_color,fontsize in subs]
         final = editor.concatenate_videoclips(annotated_clip)
